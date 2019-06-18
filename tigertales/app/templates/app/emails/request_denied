@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Youre Offer was Declined</title>
+    <!-- <style> -->
+  </head>
+  <body>
+    <span class="preheader"></span>
+    <table class="body">
+      <tr>
+        <td class="center" align="center" valign="top">
+          <center data-parsed="">
+
+            <table align="center" class="container float-center"><tbody><tr><td>
+
+              <table class="row header"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tr><th>
+
+                  <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table>
+
+                  <h2 class="text-center">Hello {{ buyer_name }},</h2>
+                  <h4 class="text-center"> We regret to inform you your offer for {{ book_title }} was declined by the seller.</h4>
+                </th>
+                <th class="expander"></th></tr></table></th>
+              </tr></tbody></table>
+              <table class="row"><tbody><tr>
+                <th class="small-12 large-12 columns first last"><table><tr><th>
+
+                  <table class="spacer"><tbody><tr><td height="32px" style="font-size:32px;line-height:32px;">&#xA0;</td></tr></tbody></table>
+
+                  <center data-parsed="">
+                    <img src="{{ book_image }}" align="center" class="float-center">
+                  </center>
+
+                  <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table>
+
+                  <h2 class="text-center"> {{ book_title }}</h2>
+                  <h3 class="text-center">List Price: {{ book_price }}</h3>
+                  <h3 class="text-center">Your Offer: {{ book_offer }}</h3>
+
+                  <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table>
+
+                 <h4 class="text-center">If you still wish to purchase this book, you can submit another offer through our website. Thank you for using TigerTales for your textbook exchange needs.</h4>
+                  <hr>
+                </th></tr></table></th>
+              </tr></tbody></table>
+              <table class="spacer"><tbody><tr><td height="16px" style="font-size:16px;line-height:16px;">&#xA0;</td></tr></tbody></table>
+            </td></tr></tbody></table>
+          </center>
+        </td>
+      </tr>
+    </table>
+    <!-- prevent Gmail on iOS font size manipulation -->
+   <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+  </body>
+</html>

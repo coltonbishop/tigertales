@@ -1,0 +1,57 @@
+/* -----------------------------------
+GENERAL
+-------------------------------------- */
+body {
+  background-image: url("../images/background.png");
+  background-repeat: repeat;
+  background-size: cover;
+  color: #52392E;
+  padding: 0;
+  margin: 0;
+  font-family: "Avenir";
+  font-weight: bold;
+  line-height: 1;
+  position: relative;
+  cursor: default;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Avenir";
+  color: #F1F1F1;
+}
+
+h4 {
+  font-family: "Avenir";
+  color: #F1F1F1;
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------------
+BUTTONS
+-------------------------------------- */
+.button {
+	background-color: #98673E;
+	border-radius: 50%;
+  font-family: "Avenir";
+}
+
+.button:hover, .button:focus {
+	background-color: #52392E;
+	color: #B7B8B5;
+	box-shadow: 0px 0px 10px #B7B8B5;
+}
+
+/* -----------------------------------
+MAIN CONTENT
+-------------------------------------- */
+#outer-to-center {
+	margin: auto;
+	margin-top: 10%;
+	height: 8%;
+	width: 75%;
+    padding: 5% 0;
+	background-color: rgba(13, 14, 11, .4);
+	box-shadow: 0px 0px 10px #B7B8B5;
+	text-shadow: 0px 0px 2px #BB975D;
+}

@@ -1,0 +1,215 @@
+{% load static %}
+{% load app_extras %}
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TigerTales: My Profile</title>
+	<link rel="icon" href="{% static 'app/images/icon.ico' %}">
+	<link rel="stylesheet" href="{% static 'app/css/foundation.css'%}">
+	<link rel="stylesheet" href="{% static 'app/foundation-icons/foundation-icons.css'%}" />
+	<link rel="stylesheet" href="{% static 'app/css/app.css'%}">
+</head>
+<body>
+
+<section class="main"> <!-- MAIN SECTION -->
+
+<!-- SIDE BAR -->
+<div class="off-canvas position-left reveal-for-large grid-padding-x sidebar">
+	<h1 class="main-button"><a href="/main">TigerTales</a></h1>
+	<div class="cell auto user-info">
+		{{ first_name }} {{ last_name }}
+		@{{ net_id }}
+	</div>
+	<a class="nav" href="/main"><i class="fi-home"></i><text>Browse</text></a>
+	<a class="nav" href="/cart"><i class="fi-shopping-cart"></i><text>Buy</text></a>
+	<a class="nav" href="/store"><i class="fi-pricetag-multiple"></i><text>Sell</text></a>
+	<a class="nav active" href="#"><i class="fi-widget"></i><text>Settings</text></a>
+	<footer>
+		<a class="nav_footer" href="/logout">Logout</a>
+		<a class="nav_footer" href="/about">About</a>
+	</footer>
+</div> <!-- END OF SIDE BAR -->
+
+<!-- OFF CANVAS CONTENT -->
+<div class="off-canvas-content" data-off-canvas-content>
+<div class="grid-margin-x">
+
+	<!-- PAGE HEADER  -->
+	<div class="grid-x sticky pageHeader hide-for-large" data-sticky data-options="marginTop: 0">
+		<div class="small-12">
+			<ul class="vertical menu accordion-menu" data-accordion-menu>
+				<li>
+					<a class="header-title" href="#"><h5>TigerTales</h5></i></a>
+					<ul class="menu vertical nested">
+						<li><a class="nav" href="/main"><i class="fi-home"></i></a></li>
+						<li><a class="nav" href="/cart"><i class="fi-shopping-cart"></i></a></li>
+						<li><a class="nav" href="/store"><i class="fi-pricetag-multiple"></i></a></li>
+						<li><a class="nav active" href="#"><i class="fi-widget"></i></a></li>
+				    </ul>
+  				</li>
+			</ul>
+		</div>
+	</div> <!-- END OF PAGE HEADER  -->
+
+	<!-- MAIN AREA -->
+	<div class ="cell small-offset-1 large-offset-2 main-area">
+
+	<!-- INTERACT MODAL  -->
+	<div id="interact_modal" class="reveal interact-modal" data-reveal>
+		{% if err_msg %}
+	<h5> {{ err_msg }} </h5>
+	{% else %}
+	{% endif %}
+	<a class="close-button" data-close>×</a>
+</div> <!-- END OF INTERACT MODAL  -->
+
+	<!-- FORM FOR PROFILE INFORMATION -->
+	<form action='/profile/' target='_self' method='post'>
+	<div class = "cell large-9 medium-9 small-8">
+	{% csrf_token %}
+	<table class="unstriped">
+		<thead> <!-- CONTACT INFORMATION -->
+			<tr style="background-color:rgba(49, 35, 28, 1)">
+				<th width="200" style="background-color:rgba(49, 35, 28, 1)">Contact Information</th>
+				<th style="background-color:rgba(49, 35, 28, 1)"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ form.first_name.label }}</td>
+				<td><div class="fieldWrapper cell large-6">
+					{{ form.first_name.errors }}
+					{{ form.first_name }}
+				</div></td>
+			</tr>
+			<tr>
+				<td>{{ form.last_name.label }}</td>
+				<td><div class="fieldWrapper cell large-6">
+					{{ form.last_name.errors }}
+					{{ form.last_name }}
+				</div></td>
+			</tr>
+			<tr>
+				<td>{{ form.venmo.label }}</td>
+				<td><div class="cell large-6">
+					{{ form.venmo.errors }}
+					{{ form.venmo }}
+				</div></td>
+			</tr>
+			<tr>
+				<td>{{ form.facebook.label }}</td>
+				<td><div class="cell large-6">
+					{{ form.facebook.errors }}
+					{{ form.facebook }}
+				</div></td>
+			</tr>
+			<tr>
+				<td>{{ form.email.label }}</td>
+				<td><div class="cell large-6">
+					{{ form.email.errors }}
+					{{ form.email }}
+				</div></td>
+			</tr>
+		</tbody> <!-- END OF CONTACT INFORMATION -->
+
+		<!-- COURSE INFORMATION -->
+		<thead style="background-color:rgba(49, 35, 28, 1)">
+				<th width='200' style="background-color:rgba(49, 35, 28, 1)">{{ form.courses.label }}</th>
+				<th style="background-color:rgba(49, 35, 28, 1)"></th>
+		</thead>
+		<tbody>
+			<tr >
+				<td>Course Name</td>
+				<td><div class="cell large-6">
+					{{ form.courses.errors }}
+					{{ form.courses }}
+				</div></td>
+			</tr>
+			{% for books in booklist %}
+			{% if books %}
+			{% for book in books %}
+				{% if forloop.counter0 == 0 %}
+			<tr>
+				<td width = '200'><b>{{book.course.course_name}}</b></td>
+				<td><a class="button" href="/profile/{{ book.course_id }}">Remove</a></td>
+			</tr>
+				{% endif %}
+			<tr>
+				<td>{{ book.title }}</td>
+				<div id="checkbox-container">
+				<div>
+				<td>
+					<label for="{{ book.puid }}">Enable Notifications?</label>
+					    <input id="submit" class="notifyCheck" type="checkbox"  puid="{{ book.puid }}"  userid ="{{ net_id }}"  onchange="checkbox_click('{{ book.id }}');">
+				</td>
+				</div>
+					</div>
+			</tr>
+			{% endfor %}
+			{% else %}
+			<tr>
+				<td width = '200'><b>{{ all_courses|get_at_index:forloop.counter0 }}</b></td>
+				<td><a class="button" href="/profile/{{ course_ids|get_at_index:forloop.counter0 }}">Remove</a></td>
+			</tr>
+			{% endif %}
+			{% endfor %}
+		</tbody> <!-- END OF COURSE INFORMATION  -->
+
+		<thead> <!-- BUTTONS -->
+			<tr>
+				<form action="PHP.php" id="test" method="post">
+     			</form>
+				<td><input type="submit" class="button small" value="Save"></td>
+				<td><a href="/main" class="button small">Main</a></td>
+			</tr>
+		</thead> <!-- END OF BUTTONS -->
+
+	</table>
+	</form> <!-- END OF FORM FOR PROFILE INFORMATION -->
+
+	</div>
+	</table>
+	</form> <!-- END OF FORM FOR PROFILE INFORMATION -->
+
+	</div> <!-- END OF MAIN AREA-->
+
+</div>
+</div> <!-- END OF OFF CANVAS CONTENT -->
+
+</section> <!-- END OF MAIN SECTION -->
+
+			<script src="{% static 'app/js/vendor/jquery.js'%}"></script>
+			<script src="{% static 'app/js/vendor/what-input.js'%}"></script>
+			<script src="{% static 'app/js/vendor/foundation.js'%}"></script>
+			<script>
+				$(document).foundation();
+				if ( {{ show_modal }} ) {
+					var modal = $('#interact_modal');
+					$(modal).foundation('open');
+				}
+				notifylist = {{ notifyList }}
+				boxes = document.getElementsByClassName("notifyCheck");
+				for (i = 0; i < boxes.length; i++) {
+					if (notifylist[i] == 1) {
+    				boxes[i].setAttribute("checked", "hellYeah");
+    				}
+				}
+			</script>
+			<script src="{% static 'app/js/vendor/jquery.js'%}"></script>
+					<script type="text/javascript">
+							 console.log("1")
+	   				 function checkbox_click (bookid)
+					    {
+					    		console.log("2")
+							    $.ajax({
+							        type:'GET',
+							        url:'/profile/notify/' + bookid + '/',
+							    });
+					    }
+					</script>
+</body>
+</html>

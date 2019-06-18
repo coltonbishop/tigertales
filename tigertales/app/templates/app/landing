@@ -1,0 +1,30 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TigerTales</title>
+    <link rel="stylesheet" href="{% static 'app/css/foundation.css'%}">
+    <link rel="icon" href="{% static 'app/images/icon.ico' %}">
+    <link rel="stylesheet" href="{% static 'app/foundation-icons/foundation-icons.css' %}" />
+    <link rel="stylesheet" href="{% static 'app/css/landing.css' %}">
+  </head>
+  <body>
+  <div id="outer-to-center">
+    <div id="inner-to-center">
+      <h1> Welcome to TigerTales</h1>
+      <h4> A one-stop shop textbook exchange for Princeton students</h4>
+      <a href="login" class="button medium">Log In</a>
+      <h5></h5>
+    </div>
+    </div>
+
+	<script src="{% static 'app/js/vendor/jquery.js'%}"></script>
+    <script src="{% static 'app/js/vendor/what-input.js'%}"></script>
+    <script src="{% static 'app/js/vendor/foundation.js'%}"></script>
+    <script src="{% static 'app/js/app.js'%}"></script>
+  </body>
+</html>

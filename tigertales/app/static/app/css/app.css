@@ -1,0 +1,389 @@
+/* -----------------------------------
+GENERAL
+-------------------------------------- */
+
+body {
+  font-family: 'Avenir', 'sans-serif';
+  line-height: 1;
+  position: relative;
+  cursor: default;
+  text-align: center;
+  background-image: url("../images/background.png");
+  background-repeat: repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+off-canvas-content {
+	background-image: url("../images/background.png");
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+/* Instead of blue outline, use thin silver */
+*:focus{
+	outline-width: 1px;
+	outline-color: #B7B8B5;
+}
+
+/* -----------------------------------
+BUTTONS
+-------------------------------------- */
+
+.button {
+	background-color: #98673E;
+	border-radius: 50%;
+	color: #f1f1f1;
+	margin-bottom: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button:hover, .button:focus {
+	background-color: #52392E;
+	color: #B7B8B5;
+	box-shadow: 0px 0px 10px #B7B8B5;
+}
+
+/* -----------------------------------
+SIDE BAR
+-------------------------------------- */
+
+.off-canvas {
+	width: 22.5%
+}
+
+.sidebar {
+  background-color: #31231c;
+  color: #BB975D;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* This is the TigerTales title / logo */
+.sidebar h1 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Avenir";
+}
+
+.sidebar a {
+	color: #B7B8B5;
+}
+
+.sidebar a:not(.nav):hover {
+	color: #F1F1F1;
+	text-shadow: 0 0;
+}
+
+.sidebar .nav {
+    display: block;
+    padding: 4%;
+    text-align: left;
+    padding-left: 30%;
+    transition: all 0.3s ease;
+    color:  #B7B8B5;
+    font-size: 30px;
+}
+
+.sidebar .nav:hover {
+    background-color: #98673E;
+}
+
+.active {
+	color: #B7B8B5;
+    background-color: rgba(152, 103, 62, .5);
+}
+
+.sidebar footer {
+	padding: 0 5% 20px;
+	padding-top: 25%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.sidebar h3 {
+	margin: 0;
+	font-size: 12px;
+}
+
+.sidebar text {
+  font-size: 12pt;
+  padding-left: 15%;
+}
+.sidebar .user-info {
+	color: #F1F1F1;
+	text-shadow: #B7B8B5;
+  margin-top: 10%;
+}
+
+.sidebar .search-bar {
+	height: 50%;
+	margin: auto;
+  margin-bottom: 20%;
+	width: 85%;
+	color: #B7B8B5
+}
+
+.sidebar .search-bar input[type="text"] {
+  background-color: #B7B8B5;
+  color: #31231c;
+  border-color: #BB975D;
+  margin-top: 20%;
+}
+
+.sidebar .main-button {
+  background-color:#98673E;
+  padding:10px;
+
+}
+
+.sidebar .main-button:hover {
+    background-color: #98673E;
+}
+
+/* -----------------------------------
+MAIN AREA
+-------------------------------------- */
+
+.main-area {
+	margin-top: 2.5%;
+  margin: 2% 5% 2% 10% !important;
+s}
+
+.main-area h4 {
+	background-color: rgba(49, 35, 28, 1);
+	color: #F1F1F1;
+	text-shadow: 0px 0px 1px #BB975D;
+	margin: 2% 100;
+	font-size: 18px;
+	font-family: "Avenir";
+	padding: .5%;
+	text-shadow: 0px 0px 4px #31231c;
+	text-transform: capitalize;
+}
+
+/* -----------------------------------
+SMALL SCREEN PAGE HEADER / MENU
+-------------------------------------- */
+
+.pageHeader {
+  background-color: #31231c;
+  color: #B7B8B5;
+  padding-top: 0.10%;
+  font-family: 'Avenir';
+}
+
+.pageHeader h5 {
+	margin-bottom: 0;
+}
+
+.pageHeader .header-title {
+	padding: .5em 0;
+}
+
+/* Get rid of dropdown menu triangle */
+.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
+	border-top-style: none;
+}
+
+.menu a {
+	padding: .5em 0em;
+}
+
+.accordion-menu .is-accordion-submenu a {
+	padding: .7em 0em;
+}
+
+.pageHeader a {
+	color: #B7B8B5;
+	/* text-shadow: 0px 0px 2px #BB975D; */
+  	font-size: 12px;
+}
+
+.pageHeader a:not(.nav):hover {
+	color: #F1F1F1;
+	text-shadow: 0 0;
+}
+
+.pageHeader .nav {
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    color:  #B7B8B5;
+    font-size: 12px;
+}
+
+.pageHeader .nav:hover {
+    background-color: #98673E;
+}
+
+.pageHeader .search-bar [type='text'] {
+	width: 35%;
+	background-color: #B7B8B5;
+	color: #31231c;
+	border-color: #BB975D;
+	margin-left: 10.5%;
+	margin-right: 0;
+}
+
+.menu .button {
+	display: inline-table;
+	margin: 2%;
+}
+
+/* -----------------------------------
+LISTING / REQUEST TILES
+-------------------------------------- */
+
+.tiles {
+	justify-content: center;
+}
+
+.listings-tile {
+	margin: 1.5%;
+	width: 10%;
+  	width: 150px;
+  	padding: 1.5%;
+  	background-color: rgba(183, 184, 181, .6);
+	box-shadow: 0px 0px 5px #31231c;
+}
+
+.listings-tile:hover {
+	box-shadow: 0px 0px 5px #B7B8B5;
+}
+
+.listings-tile a {
+	color: #31231C;
+	font-size: 12px;
+	font-family: 'Avenir';
+}
+
+/* Added automatic sizing to allow for different aspect-ratios */
+.listings-tile img.thumbnail {
+  min-width: 88px;
+  min-height: 88px;
+  width: auto;
+  height: auto;
+  margin-top: 2.5%;
+  border: solid 2px #98673E;
+  box-shadow: 0 0 0 1px rgba(49, 35, 28, 0.2);
+}
+
+/* -----------------------------------
+MODALS - LISTINGS, INTERACT
+-------------------------------------- */
+
+.listings-modal {
+  padding: 2.5%;
+  color: #31231c;
+  border-color: #B7B8B5;
+  background-color: #f7f1ea;
+  font-family: 'Avenir', 'sans-serif';
+  padding: 1.5%;
+}
+
+.listings-modal .modal-left {
+  float: left;
+  height: 100%;
+  align-items: center;
+  padding:20px;
+  margin: 10px;
+  background-color: #E3D0BD;
+}
+
+.listings-modal img {
+	min-width: 150px;
+	min-height: 225px;
+	width: auto;
+	height: auto;
+	border: solid 2px #98673E;
+	box-shadow: 0 0 0 1px rgba(49, 35, 28, 0.2);
+	margin: auto;
+}
+
+.listings-modal h3 {
+	padding-left: 2.5%;
+	font-size: 24px;
+	display: flex;
+  font-family: "Avenir";
+  font-weight: bold;
+  margin-top: 15px;
+
+}
+
+.listings-modal h5 {
+	padding-left: 2.5%;
+	font-size: 16px;
+	display: flex;
+  font-family: "Avenir";
+}
+
+.listings-modal .compare {
+  font-weight:bold;
+}
+
+.interact-modal {
+  padding: 2.5%;
+  background-color: #f7f1ea;
+  text-align: center;
+}
+
+.interact-modal h5 {
+	text-align: center;
+  font-family: "Avenir";
+}
+
+.interact-modal h3 {
+	text-align: center;
+  font-family: "Avenir";
+}
+
+.interact-modal li {
+	list-style-type: none;
+	text-align: center;
+}
+
+.interact-modal [type='submit'] {
+	border: none;
+}
+
+/* -----------------------------------
+TABLES
+-------------------------------------- */
+
+.cell [type='text']{
+	margin-bottom: 0
+}
+
+table thead th {
+  color: #f1f1f1;
+  font-weight: initial;
+}
+
+[type='text'] {
+  margin-right: 50px;
+}
+
+table {
+  border:none;
+}
+
+table tr:nth-of-type(odd) {
+    background-color:#E3D0BD !important;
+}
+
+table tr:nth-of-type(even) {
+    background-color:#F7F1EA !important;
+}
+
+.about {
+	margin-top: 10%;
+	height: 8%;
+  padding: 5%;
+	background-color: rgba(183, 184, 181, .6);
+	box-shadow: 0px 0px 10px #B7B8B5;
+}

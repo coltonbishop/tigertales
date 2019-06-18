@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath tigertales tigertales.wsgi --log-file -

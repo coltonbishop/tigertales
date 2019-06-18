@@ -1,0 +1,133 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TigerTales</title>
+	<link rel="icon" href="{% static 'app/images/icon.ico' %}">
+	<link rel="stylesheet" href="{% static 'app/css/foundation.css'%}">
+	<link rel="stylesheet" href="{% static 'app/foundation-icons/foundation-icons.css'%}" />
+	<link rel="stylesheet" href="{% static 'app/css/app.css'%}">
+</head>
+<body>
+
+<!-- MAIN SECTION -->
+<section class="main">
+
+<!-- SIDE BAR -->
+<div class="off-canvas position-left reveal-for-large sidebar">
+	<h1 class="main-button"><a href="/main">TigerTales</a></h1>
+	<div class="cell auto user-info">
+		{{ first_name }} {{ last_name }}
+		@{{ net_id }}
+	</div>
+	<a class="nav" href="/main"><i class="fi-home"></i><text>Browse</text></a>
+	<a class="nav" href="/cart"><i class="fi-shopping-cart"></i><text>Buy</text></a>
+	<a class="nav" href="/store"><i class="fi-pricetag-multiple"></i><text>Sell</text></a>
+	<a class="nav" href="/profile"><i class="fi-widget"></i><text>Settings</text></a>
+	<footer>
+		<a class="nav_footer" href="/logout">Logout</a>
+		<a class="nav_footer" href="/about">About</a>
+	</footer>
+</div> <!-- END OF SIDE BAR -->
+
+<!-- OFF CANVAS CONTENT -->
+<div class="off-canvas-content" data-off-canvas-content>
+<div class="grid-margin-x">
+
+	<!-- PAGE HEADER  -->
+	<div class="grid-x sticky pageHeader hide-for-large" data-sticky data-options="marginTop: 0">
+		<div class="small-12">
+			<ul class="vertical menu accordion-menu" data-accordion-menu>
+				<li>
+					<a class="header-title" href="#"><h5>TigerTales</h5></i></a>
+					<ul class="menu vertical nested">
+						<li><a class="nav" href="/main"><i class="fi-home"></i></a></li>
+						<li><a class="nav" href="/cart"><i class="fi-shopping-cart"></i></a></li>
+						<li><a class="nav" href="/store"><i class="fi-pricetag-multiple"></i></a></li>
+						<li><a class="nav" href="/profile"><i class="fi-widget"></i></a></li>
+				    </ul>
+  				</li>
+			</ul>
+		</div>
+	</div> <!-- END OF PAGE HEADER  -->
+
+	<!-- MAIN AREA -->
+	<div class="main-area about" >
+	<p>Thank you for using our website!</p>
+	<p align="left">This is a group project for COS 333: Advanced Programming Techniques by
+		Morlan Osgood, Sonia Hashim, Colton Bishop, Annette Chu and Ben Yap. At
+		TigerTales, our mission is to facilitate the textbook exchange process to
+		save both buyers and sellers time and effort. Previously, Princeton students
+		have been buying and selling textbooks in a Facebook group, Textbook Exchange.
+		However, the system was disorganized and users had to scroll through a long
+		list of books to find the specific ones they want. With TigerTales, students
+		can now easily search for the textbooks they need by entering their courses
+		and they can even set up notifications to be notified when a book they are looking
+		for pops up on the market.</p>
+	<p align="left">We have done this by implementing several key features:</p>
+	<ul>
+		<li align="left">Search capabilities on the home page</li>
+		<li align="left">Customized booklist for your schedule</li>
+		<li align="left">Customized notifications for only the books you want</li>
+		<li align="left">Separate pages to keep track of the books you're buying and selling</li>
+	</p></ul>
+	<p align="left">
+		<b> To begin: </b> <br>
+		You can access TigerTales at tigertales.herokuapp.com. On the landing page,
+		click “Log In” and you will be asked to provide your netID and password to
+		be authenticated via CAS. On your first login, you will be asked to fill out
+		a simple form to provide us with necessary contact and course information.
+		For each course that you add, you can choose which books you want to be
+		notified about. If you enable notifications for a book, you will receive an
+		email when a user adds a listing of that book to the market. Click save
+		after you finish.</p>
+		<p align="left">
+		<b> To buy: </b> <br>
+		You can return to the homepage to browse through all the listings on the
+		market. To look for listings for a specific course, use the search feature
+		on the sidebar. *You can enter the course code, course name or even the book
+		name to search for it*. Click on each listing to view more information, like
+		the book condition and prices on Labyrinth and Amazon. If you find a listing
+		that you are interested, add it to your favorites.</p>
+		<p align="left">
+		To access your favorites, click on the cart icon on the sidebar. For each
+		listing you added, input your offer amount using the listed price as a guide
+		and click submit. The seller will be notified with your contact information
+		and offer price and this listing will be added to your requested books and
+		removed from your favorites. If you are no longer interested in a listing,
+		you can delete it from your favorites. </p>
+		<p align="left">
+		<b> To sell: </b><br>
+		To sell a book, click on the price tag icon on the sidebar. Enter the book
+		title, price and condition and add it to your active listings. Your listing
+		will now be visible on the market. To remove a listing from the market,
+		click on the listing in your active listings and delete it. When a buyer is
+		interested in your book, you will receive an email notification along with
+		their offer price and contact information. This listing will now appear in
+		your pending transactions along with their offer and you can choose to
+		accept or decline. </p>
+		<p align="left">
+		<b> To update profile: </b><br>
+		To update your profile information, click on the settings icon on the sidebar
+		and save your profile after you make changes. You can now log out from the
+		system and wait to be notified about a book you want to buy or are selling!
+</p>
+</div>
+	<!-- END OF MAIN AREA -->
+</div>
+</div> <!-- END OF OFF CANVAS CONTENT  -->
+</section> <!-- END OF MAIN SECTION -->
+
+	<script src="{% static 'app/js/vendor/jquery.js'%}"></script>
+	<script src="{% static 'app/js/vendor/what-input.js'%}"></script>
+	<script src="{% static 'app/js/vendor/foundation.js'%}"></script>
+	<script>
+		$(document).foundation();
+
+	</script>
+  </body>
+</html>

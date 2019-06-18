@@ -1,0 +1,13 @@
+# Directory with db config files
+tigertales/db_conf/*
+
+# virtualenv is called TT
+TT/*
+
+# tutorial 
+tigertales/polls/*
+
+# including .pyc files
+*.pyc
+
+tigertales/.DS_Store

@@ -1,0 +1,80 @@
+[
+    {
+        "pk": 1, 
+        "model": "app.Course", 
+        "fields": {
+            "course_name": "AAS235-SOC236_S2018 Race Is Socially Constructed: Now What?"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9780307455925&source=list"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9780814767375&source=list"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9780072970517&source=list"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "app.Course", 
+        "fields": {
+            "course_name": "AAS242-ENG242_S2018 Other Futures: An Introduction to Modern Caribbean Literature"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9780807083673&source=list"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9781583670255&source=list"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9780802136336&source=list"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9780813927671&source=list"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "app.Book", 
+        "fields": {
+            "course_id": 1, 
+            "imageURL": "https://blackboard.princeton.edu/webapps/pu-readinglist-BB5932a686bf857/image?isbn=9780819575678&source=list"
+        }
+    }
+]

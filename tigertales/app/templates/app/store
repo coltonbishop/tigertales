@@ -1,0 +1,197 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TigerTales: My Store</title>
+	<link rel="icon" href="{% static 'app/images/icon.ico' %}">
+	<link rel="stylesheet" href="{% static 'app/css/foundation.css'%}">
+	<link rel="stylesheet" href="{% static 'app/foundation-icons/foundation-icons.css'%}" />
+	<link rel="stylesheet" href="{% static 'app/css/app.css'%}">
+</head>
+<body>
+
+<!-- MAIN SECTION -->
+<section>
+
+<!-- SIDE BAR -->
+<div class="off-canvas position-left reveal-for-large grid-padding-x sidebar">
+	<h1 class="main-button"><a href="/main">TigerTales</a></h1>
+	<div class="cell auto user-info">
+		{{ first_name }} {{ last_name }}
+		@{{ net_id }}
+	</div>
+	<a class="nav" href="/main"><i class="fi-home"></i><text>Browse</text></a>
+	<a class="nav" href="/cart"><i class="fi-shopping-cart"></i><text>Buy</text></a>
+	<a class="nav active" href="#"><i class="fi-pricetag-multiple"></i><text>Sell</text></a>
+	<a class="nav" href="/profile"><i class="fi-widget"></i><text>Settings</text></a>
+	<footer>
+		<a class="nav_footer" href="/logout">Logout</a>
+		<a class="nav_footer" href="/about">About</a>
+	</footer>
+</div> <!-- END OF SIDE BAR -->
+
+<!-- OFF CANVAS CONTENT -->
+<div class="off-canvas-content" data-off-canvas-content>
+<div class="grid-margin-x">
+
+	<!-- PAGE HEADER  -->
+	<div class="grid-x sticky pageHeader hide-for-large" data-sticky data-options="marginTop: 0">
+		<div class="small-12">
+			<ul class="vertical menu accordion-menu" data-accordion-menu>
+				<li>
+					<a class="header-title" href="#"><h5>TigerTales</h5></i></a>
+					<ul class="menu vertical nested">
+						<li><a class="nav" href="/main"><i class="fi-home"></i></a></li>
+						<li><a class="nav" href="/cart"><i class="fi-shopping-cart"></i></a></li>
+						<li><a class="nav active" href="#"><i class="fi-pricetag-multiple"></i></a></li>
+						<li><a class="nav" href="/profile"><i class="fi-widget"></i></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div> <!-- END OF PAGE HEADER  -->
+
+	<!-- MAIN AREA -->
+	<div class ="cell small-offset-1 large-offset-2 main-area">
+		<!-- INTERACT MODAL  -->
+		<div id="interact_modal" class="reveal interact-modal" data-reveal>
+			{% if not err_msg %}
+		<h3 class="text-center"> Thanks! </h3>
+		<h5 class = "text-center">
+			{{ msg }}
+		<h5>
+			{% else %}
+		<h5> {{ err_msg }} </h5>
+			<form action='/store/' target='_self' method='post'>
+			{% csrf_token %}
+			{{ modal_form }}
+			<br>
+				{% for m in matches %}
+				<ul>
+					<li> <input type='submit' name='match' value='{{ m.title }}'></input>
+				</ul>
+				{% endfor %}
+			</br>
+			</form>
+			{% endif %}
+		<a class="close-button" data-close>×</a>
+		</div> <!-- END OF INTERACT MODAL  -->
+
+		<!-- ADD LISTING -->
+		<div class ="cell medium-12"><h4>Add Listings</h4></div>
+		<table> <form action='/store/' target='_self' method='post'>
+			{% csrf_token %}
+			<tbody>
+				<tr>
+					<td>{{ form.book.label }}</td>
+					<td>
+						{{ form.book.errors }}
+						{{ form.book }}
+					</td>
+				</tr>
+				<tr>
+					<td>{{ form.condition.label }}</td>
+					<td>
+						{{ form.condition.errors }}
+						{{ form.condition }}
+					</td>
+				</tr>
+				<tr>
+					<td>{{ form.price.label }}</td>
+					<td>
+						{{ form.price.errors }}
+						{{ form.price }}
+					</td>
+				</tr>
+				<tr>
+					<td><input class='button small' type='submit' value='Add to Market'></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</form></table> <!-- END OF ADD LISTING -->
+
+		<!-- ACTIVE LISTINGS  -->
+		<div class ="cell medium-12"><h4>Active Listings</h4></div>
+		<div class="grid-x tiles">
+			{% for listing in active_listings %}
+			<div class="cell medium-2 large-2 listings-tile" data-open="modal{{ listing.book.id }}">
+				<img class="thumbnail" src="{{ listing.book.imageURL }}">
+				<h6 class = "tile-text"><a href="#">
+					{{ listing.price }} <br>
+					{{ listing.book.title }}
+				</a></h6>
+			</div>
+			<div id = "modal{{ listing.book.id }}" class="reveal listings-modal" data-reveal>
+				<div class="modal-left">
+					<img class="modal-thumbnail" src="{{ listing.book.imageURL }}">
+				</div>
+				<div class="modal-right">
+					<h3 class = "" style="font-weight:bold">{{ listing.book.title }}</h3>
+					<p></p>
+					<h5 class = "" >Listing Price: {{ listing.price }}</h5>
+					<h5 class = "" >Condition: {{ listing.condition }}</h5>
+					<p>
+						<h5 class = "compare" >Price Comparison</h5>
+						<h5 class = "" >Labryinth: {{ listing.book.lab_price }}</h5>
+						<h5 class = "" >Amazon: {{ listing.book.amazon_price }}</h5>
+					</p>
+					<a class="button small" href="/store/{{listing.id}}/">Delete</a>
+					<a class="close-button" data-close>×</a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<!-- END OF ACTIVE LISTINGS -->
+
+		<!-- PENDING TRANSACTIONS -->
+		<div class ="cell medium-12"><h4>Pending Requests</h4></div>
+		<div class="grid-x tiles"> <!-- PENDING REQUESTS LISTINGS TILES  -->
+				{% for request in requests %}
+			<div class="cell small-up-2 listings-tile" data-open="request_modal{{ request.listing.book.id }}">
+				<img class="thumbnail" src="{{ request.listing.book.imageURL }}">
+				<h6 class = "text-center"><a href="#">{{ request.listing.book.title }}</a></h6>
+			</div>
+			<div id="request_modal{{ request.listing.book.id }}" class="reveal listings-modal" data-reveal>
+				<div class="modal-left">
+					<img src="{{ request.listing.book.imageURL }}">
+				</div>
+				<h3 class = "" >{{ request.listing.book.title }}</h3>
+				<p></p>
+				<h5 class = "" >Listing Price: {{ request.listing.price }}</h5>
+				<h5 class = "" >Their Offer: {{ request.offer_price }}</h5>
+				<p>
+					<h5 class = "compare" >Price Comparison</h5>
+					<h5 class = "" >Labryinth: {{ request.listing.book.lab_price }}</h5>
+					<h5 class = "" >Amazon: {{ request.listing.book.amazon_price }}</h5>
+				</p>
+				<h5 class = "" >Buyer: {{ request.buyer.first_name }}</h5>
+				<a class="button small" href="/store/decline/{{request.id}}">Decline</a>
+				<a class="button small" href="/store/accept/{{request.id}}">Accept</a>
+			<a class="close-button" data-close>×</a>
+			</div>
+			{% endfor %}
+		</div> <!-- END OF PENDING REQUESTS LISTINGS TILES  -->
+
+	</div> <!-- END OF MAIN AREA -->
+
+</div>
+</div> <!-- END OF OFF CANVAS CONTENT -->
+</section> <!-- END OF MAIN SECTION -->
+
+	<script src="{% static 'app/js/vendor/jquery.js'%}"></script>
+	<script src="{% static 'app/js/vendor/what-input.js'%}"></script>
+	<script src="{% static 'app/js/vendor/foundation.js'%}"></script>
+	<script>
+		$(document).foundation();
+
+		if ( {{ show_modal }} ) {
+			var modal = $('#interact_modal');
+			$(modal).foundation('open');
+		}
+	</script>
+  </body>
+</html>
