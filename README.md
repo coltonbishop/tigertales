@@ -2,7 +2,10 @@
 
 # Images
 </br>
-#### Landing
-<img src="resources/landing.png" width = "330px" />
-#### Function
-<img src="resources/function.png" width = "330px" />
+<p align="center">
+
+<img src="resources/landing.png" width = "825px" />
+
+<img src="resources/function.png" width = "825px" />
+
+</p>
