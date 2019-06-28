@@ -9,14 +9,19 @@ Python 2.7.14
 
 Please see the requirements.txt for additional dependencies. 
 
-### Run from local machine
+### Local Development
 
-Once your Django virtual environment is set up, edit the database settings (in tigertales/settings.py) to point to a dummy database modeled after the SQL dump (tigertales/dump.sql). Run a local copy of the app by running the following commands:
+For development team: once your Django virtual environment is set up, configure the database settings (in tigertales/settings.py) to point to a database modeled after the SQL dump (tigertales/dump.sql). Run from a local server by running the following commands:
 
 ```
 cd tigertales
 python manage.py runserver
 ```
+
+Visit http://127.0.0.1:8000/ in a browser and enter login information to explore the application. 
+
+
+## Functionality
 
 </br>
 <p align="center">
